@@ -1,0 +1,17 @@
+<h1>Send a new message to twitter/insidehacdc</h1>
+<p>Nick name is optional, but the message is not. You must be at the HacDC space, connected to the wifi LAN, in order to use this service.
+<% form_for(@message) do |f| %>
+  <%= f.error_messages %>
+
+  <p>Your nickname:<br>
+  <%= f.text_field :nickname, :required => true, :help => "Enter your nick name" %><br>
+
+  <p>Your message should describe what you're working on when you're at the space right now.
+  <p>Your message:<br>
+  <%= f.text_field :plaintext, :required => true, :help => "What will you be doing?" %> 
+  <p>
+    <%= f.submit "Post to twitter.com/insidehacdc" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', messages_path %>

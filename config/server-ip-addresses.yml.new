@@ -1,0 +1,4 @@
+ # Church
+ hacdcspace: church.ip.address
+
+ webserver: hacdc.webserver.ip.address

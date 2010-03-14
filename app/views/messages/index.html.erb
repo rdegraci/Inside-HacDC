@@ -1,0 +1,58 @@
+<h1>Welcome to Inside HacDC!</h1>
+<p> <a href="http://twitter.com/insidehacdc">InsideHacDC</a> is a twitter bot that will let you answer one question: What are you doing at the HacDC Space right now?
+<p>This web app, will let anyone onsite at the HacDC space to post a message to twitter.com/insidehacdc detailing what they plan to do at the space.  The motivation for this service is to create a twitter bot that Tweeple will follow and learn more about what is occuring at the HacDC space.
+<p>If you have any suggestions, improvements, or questions about this, please visit our <a href="http://projects.hacdc.org">Software-Multimedia Project Forums</a>.
+<hr>
+<h2>Ok so how do I post a message?</h2>
+<p>Simple click on the link below:<br>
+<%= link_to 'Send a New message @insidehacdc' , new_message_path %>
+<hr>
+<h2>Most recent message posted @insidehacdc</h2>
+
+<p>Nickname: <%= h @messages.last.nickname if @messages.last !=nil %><br>
+  <p>Message: <%= h @messages.last.plaintext if @messages.last !=nil %><br>
+  <%= h @messages.last.created_at  if @messages.last !=nil %>
+
+<hr>
+<h2>Previous messages posted this month</h2>
+<table>
+<% for message in @monthmessages %>
+  <tr>
+    <td><%= h message.nickname %>:</td>
+    <td><%= h message.plaintext %></td>
+    <td><%= h message.created_at %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<hr>
+
+<h3>Recent messages from InsideHacDC Followers </h3>
+<table>
+<%
+#updates = @twitter.timeline_for( :friends, :id => @last_id , :since => 5.minutes.ago )
+updates = @twitter.messages(:received) 
+ updates.each do|update| 
+%>
+  <tr>
+  <td>
+  <%= h update.sender.name %>:
+  </td>
+  <td>  
+ <%=  h update %>
+  </td>
+  <td>
+ <%= h update.created_at %>
+  </td>
+  </tr>
+<%
+    @last_id = update.id 
+  end
+%>
+</table> 
+<br>
+<br>
+<hr>
+Written by RBD,  Spring 2009

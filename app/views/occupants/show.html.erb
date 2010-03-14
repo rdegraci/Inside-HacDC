@@ -1,0 +1,21 @@
+
+#      t.column :nickname, :string
+#      t.column :prefix, :string
+#      t.column :title, :string
+#      t.column :description, :string
+#      t.column :email, :string
+
+
+<p>Nick Name<br>
+<%=  h @occupant.nickname %>
+<p>Prefix<br>
+<%= h @occupant.prefix %>
+<p>Title<br>
+<%= h @occupant.title %>
+<p>Description<br>
+<%= h @occupant.description %>
+<p>E-mail<br>
+<%= h @occupant.email %>
+<p>
+<%= link_to 'Edit', edit_occupant_path(@occupant) %> |
+<%= link_to 'Back', occupants_path %>

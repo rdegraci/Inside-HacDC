@@ -1,0 +1,26 @@
+<h1>New occupant</h1>
+
+<% form_for(@occupant) do |f| %>
+  <%= f.error_messages %>
+
+  <p>Nick Name:<br>
+  <p> <%= f.text_field :nickname %>
+  
+  <p>Prefix:<br>
+  <p> <%= f.text_field :prefix %>
+
+  <p>Title:<br>
+  <p> <%= f.text_field :title %>
+
+  <p>Description:<br>
+  <p> <%= f.text_area :description %>
+
+  <p>Email:<br>
+  <p> <%= f.text_field :email %>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', occupants_path %>

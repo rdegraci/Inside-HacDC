@@ -1,0 +1,7 @@
+
+<h1>Your message</h1>
+<p>Nickname: <%= h @message.nickname %><br>
+<p>Message: <%= h @message.plaintext %><br>
+<p>Created at: <%= h @message.created_at %><br>
+<p>
+<%= link_to 'Back', messages_path %>

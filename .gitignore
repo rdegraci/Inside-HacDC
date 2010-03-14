@@ -1,0 +1,9 @@
+log/*.log
+tmp/**/*
+temp/**/*
+.DS_Store
+database.yml
+db/schema.rb
+twitter.yml
+server-ip-addresses.yml
+*.pid

@@ -1,0 +1,19 @@
+<h1>Listing occupants</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for occupant in @occupants %>
+  <tr>
+    <td><%= h occupant.nickname %>
+    <td><%= link_to 'Show', occupant %></td>
+    <td><%= link_to 'Edit', edit_occupant_path(occupant) %></td>
+    <td><%= link_to 'Destroy', occupant, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New occupant', new_occupant_path %>

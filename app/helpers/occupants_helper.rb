@@ -1,0 +1,2 @@
+module OccupantsHelper
+end
